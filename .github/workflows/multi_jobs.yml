@@ -32,6 +32,10 @@ jobs:
 
     deploy_job_3:
         needs: [test_job_2]
+        concurrency:
+          group: production
+          cancel-in-progress: true 
+
         runs-on: ubuntu-latest
         steps:
             - name: Download Dragon text file
