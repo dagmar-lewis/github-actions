@@ -6,12 +6,12 @@ jobs:
     deploy:
       strategy:
         matrix:
-          os: [ubuntu-latest,windows-latest]
+          os: [ubuntu-latest, windows-latest]
           images: [hello-world, alpine]
       runs-on: ${{matrix.os}}
       steps:
       - name: Echo Docker Details
         run: docker info
 
-      - name: Run Images on ${{matrix.images}}
+      - name: Run Images on ${{matrix.os}}
         run: ${{matrix.images}}  
